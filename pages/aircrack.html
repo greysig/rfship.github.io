@@ -1,8 +1,11 @@
-
 <!DOCTYPE HTML>
-
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
+	<head>
 		<title>RF-SHIP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,116 +13,137 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
+	<body id="top">
 
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<h1>I enjoy Networking, RF, Wireless, NetFlow<br />
+					<br />
+					</h1>
+				</div>
+			</header>
 
+		<!-- Main -->
+			<div id="main">
 
-<link rel="stylesheet" href="assets/css/main.css" />
-<h3>
-<span style="color: #cccccc;"><b>Intro: </b></span></h3>
-Most, if not all the content in this page can be found on <a href="https://www.aircrack-ng.org/">Aircrack-ng's site</a> but has been organized for my (maybe our) benefit. Currently just the basics have been posted but I plan on going back as I learn and master other skills.  <br />
-Screen shots are taken from a little netbook I own that is currently running Kali 2.0 for convinces. <br />
-If I miss a step or don't show a step that you think is important, feel free to leave a comment or shoot me an email at rfship@gmail.com :) <br />
-<h5 style="text-align: center;">
-<span style="color: #cccccc;"><b>Getting Started: </b></span></h5>
-First we have to make sure that there are no process running that can get in the way.
-<br />
-<br />
-<code>
-airmon-ng check kill
-</code>
-<br />
-<code><br /></code>
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://3.bp.blogspot.com/-sO_A6R7JSBs/WKEydUSG1rI/AAAAAAAABBM/TpIaWJ-jMe455p-1H_oIppTNFbHGZqo-ACLcB/s1600/check_kill.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://3.bp.blogspot.com/-sO_A6R7JSBs/WKEydUSG1rI/AAAAAAAABBM/TpIaWJ-jMe455p-1H_oIppTNFbHGZqo-ACLcB/s1600/check_kill.png" /></a></div>
-<br />
-<h5 style="text-align: center;">
-<span style="color: #cccccc;"><b>Monitoring: </b></span></h5>
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-Next we will put out interface into monitoring mode. Since I am using a USB adapter my interface will be <i>wlan1</i>.
-<br />
-<br />
-<code>
-airmon-ng start wlan1
-</code>
-<br />
-<code><br /></code>
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://4.bp.blogspot.com/-LywDXyCskUM/WKFSo3-1xFI/AAAAAAAABDY/eMno0u5Cp44X69mnfBbhk5ZY0wxgtg66wCLcB/s1600/airmon_start.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="81" src="https://4.bp.blogspot.com/-LywDXyCskUM/WKFSo3-1xFI/AAAAAAAABDY/eMno0u5Cp44X69mnfBbhk5ZY0wxgtg66wCLcB/s320/airmon_start.png" width="320" /></a></div>
-<code><br /></code>
-<code><br /></code>
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-This will put the interface into monitoring mode. creating an new interface&nbsp;<i>wlan1mon</i>. With the new interface create we can begin to monitoring near by networks.<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-<br />
-<br />
-<code>
-airodump-ng wlan1mon
-</code>
-<br />
-<code><br /></code>
-<code><br /></code>
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://4.bp.blogspot.com/-irTIzdeE0h0/WKFSus9Xs3I/AAAAAAAABDc/Yz_pDa6WbF8InynCgiV73Qo_yNgKHZvSQCLcB/s1600/monitoring.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="120" src="https://4.bp.blogspot.com/-irTIzdeE0h0/WKFSus9Xs3I/AAAAAAAABDc/Yz_pDa6WbF8InynCgiV73Qo_yNgKHZvSQCLcB/s320/monitoring.png" width="320" /></a></div>
-<code><br /></code>
-<br />
-The command above with begin listening to nearby networks processing the below output. 
-<br />
-<br />
-<b>BSSID &nbsp;-</b>Mac address the Wireless Access Point<br />
-<b>ESSID &nbsp;- </b>Name of the network. Can be hidden<br />
-<b>PWR &nbsp;-</b>Signal Strength<br />
-<b>CH &nbsp;-</b>&nbsp;Channel the Access Point is operating on<br />
-<b>MB &nbsp;- </b>&nbsp;Speed or mode the device is providing (11 pure)<br />
-<b>ENC &nbsp;- </b>Encyption that is being used for the password<br />
-<b>CIPHER &nbsp;-</b>Encryption protocol that is being using<br />
-<b>AUTH &nbsp;-</b>Authentication being used to authenticate to the Access Point: PreShared Key (PSK)<br />
-<h5 style="text-align: center;">
-<b style="color: #cccccc;"><!--more--></b></h5>
-<h5 style="text-align: center;">
-<b style="color: #cccccc;">Sniffing:&nbsp;</b></h5>
-Now that we have done a little monitor and found our target we can single them out and focus just one them<br />
-<br />
-<code>
-airodump-ng -c *Your target's channel*  --bssid *bssid of target* -w /path/to/file interface</code><br />
-<code><br /></code>
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-<div class="separator" style="clear: both; text-align: center;">
-<a href="https://3.bp.blogspot.com/-qXTH_-KSG_8/WKFTGX6JXdI/AAAAAAAABDk/GgXfsidzUjw_gS0HTQpTwdyI8uvN3VK5gCLcB/s1600/caputre.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="81" src="https://3.bp.blogspot.com/-qXTH_-KSG_8/WKFTGX6JXdI/AAAAAAAABDk/GgXfsidzUjw_gS0HTQpTwdyI8uvN3VK5gCLcB/s320/caputre.png" width="320" /></a></div>
-<br />
-Little bit of an explanation &nbsp;-c wit be your target , 6 for me. -w simply mean write to then the path and name of file you wish to write out to. Finally you have the interface you are listening on. The command will begin to capture data. When you exit or quit the command it will output four files with various information.<br />
-<br />
-<ul><ul><ul><ul>
-<li>*.cap</li>
-<li>*.csv</li>
-<li>*.kismet.csv</li>
-<li>*.kismet.netxml</li>
-</ul>
-</ul>
-</ul>
-</ul>
-<br />
-<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
-<h5 style="text-align: center;">
-<span style="color: #cccccc;"><b>&nbsp;</b></span></h5>
-<h5 style="text-align: center;">
-</h5>
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>RF-SHIP<br />
+							Sailing through the wonderful world of RF</h2>
+						</header>
+						<p></p>
+						<ul class="actions">
+							<li><a href="pages/aircrack.html" class="button">Basics with Aircrack-ng</a></li>
+						</ul>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Random Things</h2>
+						<div class="row">
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+								<h3>Playing with OpenWRT</h3>
+								<p>My journey through OpenWRT and what it is.</p>
+							</article>
+							<article class="6u$ 12u$(xsmall) work-item">
+								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
+								<h3>Wireless Standards</h3>
+								<p>There is a lot to know...</p>
+							</article>
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
+								<h3>Going Mobile</h3>
+								<p>There is more to wireless than Wi-Fi</p>
+							</article>
+							<article class="6u$ 12u$(xsmall) work-item">
+								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
+								<h3>Command Commands</h3>
+								<p>Commands I find usefull and forget often</p>
+							</article>
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
+								<h3>Digital Signal Process and Software Defined Radio</h3>
+								<p>^Just trying to learn and understand. </p>
+							</article>
+							<article class="6u$ 12u$(xsmall) work-item">
+								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
+								<h3>Other RF stuff</h3>
+								<p>The world of Radio Frequencies</p>
+							</article>
+						</div>
+						<!--<ul class="actions">
+							<li><a href="#" class="button">Full Portfolio</a></li>
+						</ul> -->
+					</section>
+
+				<!-- Three 
+					<section id="three">
+						<h2>Get In Touch</h2>
+						<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+						<div class="row">
+							<div class="8u 12u$(small)">
+								<form method="post" action="#">
+									<div class="row uniform 50%">
+										<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+							<div class="4u$ 12u$(small)">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon fa-home"><span class="label">Address</span></h3>
+										1234 Somewhere Rd.<br />
+										Nashville, TN 00000<br />
+										United States
+									</li>
+									<li>
+										<h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
+										<a href="#">hello@untitled.tld</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+	
+
+			</div>
+-->
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; RF-Ship</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
