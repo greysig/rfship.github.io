@@ -30,11 +30,13 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">About</a></li>
+								<li><a href="#about">About</a></li>
 								<li><a href="#wireless">802.11</a></li>
+								<li><a href="#protocols">Protocols</a></li>
 								<li><a href="#openwrt">Openwrt</a></li>
 								<li><a href="#aircrack">Aircrack</a></li>
 								<li><a href="#">Blog</a></li>
+
 							</ul>
 						</nav>
 					</header>
@@ -43,20 +45,24 @@
 					<div id="main">
 
 						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>I don't really like talk about myself so this page is in progress...</p>
-							</article>
+							<article id="about">
+								<h2 class="major">About</h2>
+								<span class="image main"><img src="images/satelite.jpg" alt="" /></span>
+								<p>I have a B.S. Computer Networking and CyberSecurity, but as I begin to look at the field, I fine that security is more a mindset. Today I fine myself interested in how technologies pass data between one another. Moreover I fine wireless communication of all form (802.11, bluetooth, mobile, etc.) to have my current interest. When I see an antenna on a light pull or a little dish point in so odd direction I wonder what its doing, where its going and why its there. <br/> </br>
+I have a general wonder about how things works, which can be good, but also bad as its is to run down the rabbit hole when learning about new and exciting topics. 
+</p>
+						</article>
+					
 
-						<!-- wireless -->
+						<!-- 802.11 -->
 							<article id="wireless">
-								<h2 class="major">802.11</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>802.11 Standards comming soon</p>
+								<h2 class="major">802.11 Standards</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p>Deciding where I should start. Do I begin back a legacy or current ac even though IEEE has discontinued it. Or should I jump to the future and begin talking about AD and how its suppose to be in the 45/60 GHZ range.</p>
 							</article>
+						
 
-						<!-- About -->
+						<!-- Openwrt -->
 							<article id="openwrt">
 								<h2 class="major">OpenWRT</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
@@ -65,7 +71,6 @@
 
 Openwrt: "OpenWRT is described as a Linux distribution for embedded devices."--<a href="http://www.openwrt.org/">OpenWRT</a></br>
 </br>
-
 <strong> What I am playing with:</strong> </br>
 </br>
 Linksys: WRT1200ac</br>
@@ -77,46 +82,32 @@ Using Windows? I recommend you use the OpenWRT's documentation below.</br>
 <!--<h4><span style="color: #cccccc;"><b>Getting Started: </b></span></h4>-->
 <h4><span style="color: #cccccc;"><b>Creating SSH Key: &nbsp;</b></span></h4>
 <p> 
-
 <b>Host:</b>
 </br>
 Creating and ssh-key for the router. 
-</br>
-</br>
+</br></br>
 <code style="margin-left: 40px">ssh-keygen -t dsa</code>
-</br>
-</br>
+</br></br>
 Next we will use the Secure Copy command to send the ssh-key from the host to the client to the OpenWRT router. 
-</br>
-</br>
-
+</br></br>
 <code style="margin-left: 40px">scp ~/.ssh/id_dsa.pub root@192.168.X.X:/tmp</code>
-
-</br>
-</br>
+</br></br>
 <b>Router:</b>
 </br>
 Next we will log into the router to authorize the ssh-key
-</br>
-</br>
+</br></br>
 <code style="margin-left: 40px">ssh root@192.168.X.X></code>
-</br>
-</br>
+</br></br>
 Change directory to dropbear (Still understanding dropbear. I'll post more when I look into to.)
-</br>
-</br>
+</br></br>
 <code style="margin-left: 40px">cd /etc/dropbear</code>
-</br>
-</br>
+</br></br>
 Next we will add the ssh-key to the to the list authorized keys acceptd.
-</br>
-</br>
+</br></br>
 <code style="margin-left: 40px">cat /tmp/id_*.pub &gt;&gt; authorized_keys</code>
-</br>
-</br>
+</br></br>
 <code style="margin-left: 40px">chmod 0600 authorized_keys</code>
-</br>
-</br>
+</br></br>
 <h4 span style="color: #cccccc;"><b>OpenVpn Loading.... </b></span></h4>
 </p></p>
 							</article>
@@ -163,16 +154,9 @@ If I miss a step or don't show a step that you think is important, shoot me an e
 <h5 style="text-align: center;">
 <span style="color: #cccccc;"><b>Getting Started: </b></span></h5>
 First we have to make sure that there are no process running that can get in the way.
-<br />
-<br />
-<code style="margin-left: 40px">
-airmon-ng check kill
-</code>
-
-
-<br />
-<div class="separator" style="clear: both; text-align: center;">
-</div>
+<br /><br />
+<code style="margin-left: 40px">airmon-ng check kill</code>
+<br /><br />
 <div class="separator" style="clear: both; text-align: center;">
 <a href="https://3.bp.blogspot.com/-sO_A6R7JSBs/WKEydUSG1rI/AAAAAAAABBM/TpIaWJ-jMe455p-1H_oIppTNFbHGZqo-ACLcB/s1600/check_kill.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://3.bp.blogspot.com/-sO_A6R7JSBs/WKEydUSG1rI/AAAAAAAABBM/TpIaWJ-jMe455p-1H_oIppTNFbHGZqo-ACLcB/s1600/check_kill.png" /></a></div>
 <br />
@@ -258,11 +242,18 @@ Little bit of an explanation &nbsp;-c wit be your target , 6 for me. -w simply m
 
 							</article>
 
+						<!-- Protocols -->
+							<article id="protocols">
+								<h2 class="major">Networking Protocols</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+						<p>This page will fully contain networking procotol that I come across as I attempt to document them and understand why they were created.</p>
+							</article>
+
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; RF-Ship . Design and Thanks go to: <a href="https://html5up.net">HTML5 UP</a>.</p>
 					</footer>
 
 			</div>
