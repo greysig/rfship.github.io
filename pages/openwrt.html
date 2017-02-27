@@ -1,0 +1,104 @@
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>RF-SHIP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../images/avatar.jpg" class="image avatar"><img src="../images/avatar.jpg" alt="" /></a>
+					<h1><strong>RF, Wireless, NetFlow</strong> <br />
+					<br />
+					</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+
+<h3><span style="color: #cccccc;"><b>Intro: </b></span></h3>
+<p> 
+
+Openwrt: "OpenWRT is described as a Linux distribution for embedded devices."--<a href="http://www.openwrt.org/">OpenWRT</a></br>
+</br>
+
+<strong> What I am playing with:</strong> </br>
+</br>
+Linksys: WRT1200ac</br>
+Debian OS<br/>
+Using Windows? I recommend you use the OpenWRT's documentation below.</br> 
+<a href="https://wiki.openwrt.org/oldwiki/dropbearpublickeyauthenticationhowto">OpenWRT documentation for SSH-Key</a>
+</br>
+</p>
+<!--<h4><span style="color: #cccccc;"><b>Getting Started: </b></span></h4>-->
+<h4><span style="color: #cccccc;"><b>Creating SSH Key: &nbsp;</b></span></h4>
+<p> 
+
+<b>Host:</b>
+</br>
+Creating and ssh-key for the router. 
+</br>
+</br>
+<code style="margin-left: 40px">ssh-keygen -t dsa</code>
+</br>
+</br>
+Next we will use the Secure Copy command to send the ssh-key from the host to the client to the OpenWRT router. 
+</br>
+</br>
+
+<code style="margin-left: 40px">scp ~/.ssh/id_dsa.pub root@192.168.X.X:/tmp</code>
+
+</br>
+</br>
+<b>Router:</b>
+</br>
+Next we will log into the router to authorize the ssh-key
+</br>
+</br>
+<code style="margin-left: 40px">ssh root@192.168.X.X></code>
+</br>
+</br>
+Change directory to dropbear (Still understanding dropbear. I'll post more when I look into to.)
+</br>
+</br>
+<code style="margin-left: 40px">cd /etc/dropbear</code>
+</br>
+</br>
+Next we will add the ssh-key to the to the list authorized keys acceptd.
+</br>
+</br>
+<code style="margin-left: 40px">cat /tmp/id_*.pub &gt;&gt; authorized_keys</code>
+</br>
+</br>
+<code style="margin-left: 40px">chmod 0600 authorized_keys</code>
+</br>
+</br>
+<h4 span style="color: #cccccc;"><b>OpenVpn Loading.... </b></span></h4>
+</p>
+
+
+
+
+
+		</header>
+              
+              </div>
+              
+              </body>
+              
+              </html>
+            
+
